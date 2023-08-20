@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 {
   /* <div id='parent'>
     <div id='child'>
@@ -8,9 +10,7 @@
     </div>
 </div> */
 }
-
-const root = document.getElementById("root");
-const heading = React.createElement("div", { id: "parent" }, [
+const heading = React.createElement("div", { id: "parent" },
   React.createElement(
     "div",
     { id: "child" },
@@ -20,7 +20,7 @@ const heading = React.createElement("div", { id: "parent" }, [
     "div",
     { id: "child2" },
     React.createElement("h1", {}, "this is h1 tag")
-  ),
-]);
-
-ReactDOM.render(heading, root);
+  )
+);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
