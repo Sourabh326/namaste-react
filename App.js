@@ -75,6 +75,7 @@ const RestaurantCard = (props) => {
   );
 };
 
+// swiggy api data
 const restaurantList = [
   {
     info: {
