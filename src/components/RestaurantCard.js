@@ -15,12 +15,14 @@ const RestaurantCard = (props) => {
       <div className="res-content">
         <h3> {name} </h3>
         <h4> {cuisines.join(", ")} </h4>
+        <div className="res-utils">
         <h4> {avgRatingString} </h4>
         <h4> {costForTwo} </h4>
         <h4> {sla.slaString}</h4>
+        </div>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default RestaurantCard;

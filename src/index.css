@@ -1,5 +1,11 @@
+
+.body {
+    font-family: 'Work Sans', sans-serif;
+    font-family: 'Yantramanav', sans-serif;
+}
 .header {
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid rgb(225, 225, 225);
+    /* box-shadow-lef: 0 4px 6px rgba(0, 0, 0, 0.1); */
     display: flex;
     justify-content: space-between;
 }
@@ -18,7 +24,9 @@
 .nav-items > ul > li {
     padding: 10px;
     margin: 10px;
-    font-size: 20px;
+    font-size: 18px;
+    color: rgba(2, 6, 12, 0.75);
+    font-family: 'Work Sans', sans-serif;
 }
 
 .res-container {
@@ -28,17 +36,37 @@
 
 .res-card {
     width: 250px;
-    border: 1px solid silver;
+    height: 400px;
+    border: 1px solid rgb(225, 225, 225);
     border-radius: 10px;
     margin: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
 }
 
 .search {
     padding: 10px;
 }
 
-.res-card {
+.filter-btn {
+    margin: 10px;
+    margin: 10px;
+    padding: 10px 20px;
     background-color: transparent;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 7px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: rgba(2, 6, 12, 0.6);
+    font-size: medium;
+    cursor: pointer;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.res-card:hover{
+    transform: translateY(-5px);
+    transition: 0.3s ease-in-out;
 }
 
 .res-card .res-img {
@@ -65,4 +93,9 @@
     word-spacing: 2px;
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+.res-utils {
+    display: flex;
+    justify-content: space-between;
 }

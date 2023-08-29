@@ -43,3 +43,10 @@
   - Named
     - import {component} from "path"
     - export const ComponentName  
+
+# React Hooks
+  - useState()
+    - the state variable is normal js function which comes with some special feature. state allows to use this and update this and renders the dom quickly. state keeps UI and data and sink with data layers.
+
+  - useEffect()
+
