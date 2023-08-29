@@ -39,7 +39,7 @@
     height: 400px;
     border: 1px solid rgb(225, 225, 225);
     border-radius: 10px;
-    margin: 10px;
+    margin: 15px;
     background-color: transparent;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -48,6 +48,8 @@
 
 .search {
     padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .filter-btn {
@@ -98,4 +100,19 @@
 .res-utils {
     display: flex;
     justify-content: space-between;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.shimmer-card {
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: #f0f0f0;
 }
