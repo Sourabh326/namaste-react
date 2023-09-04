@@ -1,7 +1,6 @@
 
 .body {
-    font-family: 'Work Sans', sans-serif;
-    font-family: 'Yantramanav', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .header {
     border-bottom: 1px solid rgb(225, 225, 225);
@@ -21,12 +20,13 @@
     cursor: pointer;
 }
 
-.nav-items > ul > li {
+.nav-items > ul > li > a {
     padding: 10px;
     margin: 10px;
     font-size: 18px;
     color: rgba(2, 6, 12, 0.75);
     font-family: 'Work Sans', sans-serif;
+    text-decoration: none;
 }
 
 .res-container {
@@ -156,4 +156,107 @@
     color: coral;
     font-weight: 600;
     cursor: pointer;
+}
+.restro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.restro .rating {
+    border: 1px solid #e9e9eb;
+    box-shadow: 0 1px 5px #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+    padding: 3px;
+    max-width: 100px;
+    height: 80px;
+}
+.restro .rating h3{
+    color: #3d9b6d;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9e9eb;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.restro .rating p {
+    font-size: 12px;
+    color: #8b8d97;
+    font-weight: 600;
+}
+
+.restro-info {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.restro-info h2 {
+    color: #3e4152;
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+.restro-info p {
+    font-size: 16px;
+    font-weight: normal;
+    color: rgba(2, 6, 12, 0.6);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.menu-child {
+    width: 70%;
+}
+
+.menu-child h3 {
+    color: #3e4152;
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid silver;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.menu-item img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.menu-item .left-item h2 {
+    color: #3e4152;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.menu-item .left-item h5 {
+    font-size: 1rem;
+    margin-right: 8px;
+    font-weight: 400;
+    color: #3e4152;
+}
+
+.menu-item .left-item p{
+    font-size: 16px;
+    font-weight: normal;
+    color: rgba(2, 6, 12, 0.6);
+    word-spacing: 2px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }

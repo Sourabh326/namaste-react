@@ -7,6 +7,7 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestaurantsInfo from "./components/RestaurantsInfo";
 
 //  const heading = React.createElement("h1", {id:'heading'}, "This is from React");
 // JSX => bable converts JSX to the React.createElement => ReactElement-JS Object => HTML Element (Render)
@@ -35,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantsInfo />
       }
     ],
     errorElement: <Error />,
