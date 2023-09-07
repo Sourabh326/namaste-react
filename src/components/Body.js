@@ -31,7 +31,7 @@ const Body = () => {
     <div className="body">
       <div className="search-section">
         <div className="search-box">
-          <input
+          <input 
             className="search-input"
             type="text"
             value={searchText}

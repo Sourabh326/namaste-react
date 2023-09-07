@@ -260,3 +260,35 @@
     margin-top: 8px;
     margin-bottom: 8px;
 }
+
+/* about component */
+.about-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .about-heading {
+    font-size: 24px;
+    color: #333;
+  }
+
+/* class component */
+  .info-heading {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .info-subheading {
+    font-size: 20px;
+    color: #555;
+  }
+  
+  .info-details {
+    font-size: 16px;
+    color: #777;
+    margin-top: 10px;
+  }
+  
