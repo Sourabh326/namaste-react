@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import "./index.css";
@@ -8,7 +8,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantsInfo from "./components/RestaurantsInfo";
-
+// import Grocery from "./components/Grocery";
+const Grocery = lazy(()=> import("./components/Grocery"));
 //  const heading = React.createElement("h1", {id:'heading'}, "This is from React");
 // JSX => bable converts JSX to the React.createElement => ReactElement-JS Object => HTML Element (Render)
 
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantsInfo />
+      },
+      {
+        path: "/grocery",
+        element: <Suspense fallback={<h2>Loading...</h2>}><Grocery /></Suspense>
       }
     ],
     errorElement: <Error />,

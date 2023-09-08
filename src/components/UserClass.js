@@ -1,49 +1,43 @@
 import {Component} from "react";
+import Shimmer from "./Shimmer";
 
 class UserClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
-      count2: 2,
+      userInfo: null,
     };
-    console.log('constructor methode call')
   }
 
-  componentDidMount(){
-    console.log('component did mount call')
-    // this.timer = setInterval(() => {
-    //   console.log("SET INTERVAL")
-    // }, 1000);
-  }
 
-  componentDidUpdate(){
-    console.log("component did update call")
-  
-  }
-
-  componentWillUnmount(){
-    // clearInterval(this.timer)
+  async componentDidMount(){
+    const data = await fetch('https://api.github.com/users/sourabh326');
+    const result = await data.json();
+    this.setState({userInfo: result})
   }
 
   render() {
-    const { name, location, designation } = this.props;
-    const { count, count2 } = this.state;
-    console.log("render methode call");
+    if(this.state.userInfo === null) return <div>Loding...</div>
+    const { name, avatar_url, html_url, bio } = this.state.userInfo;
+
     return (
-      <div>
-        <h1 className="info-heading">Count: {count}</h1>
-        <h1 className="info-heading">Count 2: {count2}</h1>
-        <button onClick={()=> {
-            this.setState({
-                count: count+1,
-                count2: this.state.count2 + 1
-            })
-        }}>Increase</button>
-        <h2 className="info-subheading">Name: {name}</h2>
-        <h3 className="info-details">Address: {location}</h3>
-        <h3 className="info-details">Designation: {designation}</h3>
+      <div className="user-profile-card">
+      <img className="user-avatar" src={avatar_url} alt="user-img" />
+      <h2 className="info-subheading">{name}</h2>
+
+      <div className="bio">Bio</div>
+      <div className="info-details">{bio}</div>
+
+      <div className="social">
+        <div>
+          <a href="https://linkedin.com/in/sourabh-nehar" target="_blank">Linkedin</a>
+        </div>
+
+        <div>
+          <a href={html_url} target="_blank">Github</a>
+        </div>
       </div>
+    </div>
     );
   }
 }
