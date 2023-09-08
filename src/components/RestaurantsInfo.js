@@ -15,6 +15,7 @@ const RestaurantsInfo = () => {
   const { itemCards } =
     restaurantsInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card;
+  const subMenus = restaurantsInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards;
 
   return (
     <div>
@@ -35,7 +36,33 @@ const RestaurantsInfo = () => {
       <div className="menu">
         <div className="menu-child">
           <h3>Menu</h3>
-          {itemCards?.map((item) => {
+          {
+            subMenus.slice(1, -2).map((item)=>{
+              const {itemCards, title} = item.card.card;
+              return(
+                <div className="sub-menu" key={title}>
+                  <h2 className="title">{title}</h2>
+                  {itemCards?.map((items) => {
+                    const { name, price, description, imageId } = items.card.info;
+                    return (
+                      <div className="menu-item" key={name}>
+                        <div className="left-item">
+                          <h2>{name}</h2>
+                          <h5>Rs. {price / 100}</h5>
+                          <p> {description} </p>
+                        </div>
+                        <div>
+                          <img src={CDN_LINK + imageId} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )
+            })
+          }
+          
+          {/* {itemCards?.map((item) => {
             const { name, price, description, imageId } = item.card.info;
             return (
               <div className="menu-item" key={name}>
@@ -49,7 +76,7 @@ const RestaurantsInfo = () => {
                 </div>
               </div>
             );
-          })}
+          })} */}
         </div>
       </div>
     </div>
