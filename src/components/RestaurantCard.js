@@ -7,22 +7,37 @@ const RestaurantCard = (props) => {
     cuisines,
     avgRatingString,
     costForTwo,
-    sla,
+    // sla,
+    aggregatedDiscountInfoV3,
   } = props.data?.info;
   return (
-    <div className="res-card">
-      <img className="res-img" src={CDN_LINK + cloudinaryImageId} />
-      <div className="res-content">
-        <h3> {name} </h3>
-        <h4> {cuisines.join(", ")} </h4>
-        <div className="res-utils">
-        <h4> {avgRatingString} </h4>
-        <h4> {costForTwo} </h4>
-        <h4> {sla.slaString}</h4>
+    <div>
+    { aggregatedDiscountInfoV3?.header !== undefined && 
+      <h2 className="absolute p-1.5 bg-gray-950 rounded-br-xl text-gray-300 text-sm">
+        {" "}
+        {aggregatedDiscountInfoV3?.header +
+          " " +
+          aggregatedDiscountInfoV3?.subHeader}{" "}
+      </h2>
+    }
+
+      <div className="res-card w-[270px] h-[450px] rounded-lg my-4 bg-gray-100 hover:bg-gray-200 shadow-md">
+        <img
+          className="rounded-lg w-[100%] h-[220px]"
+          src={CDN_LINK + cloudinaryImageId}
+        />
+        <div className="res-content py-2 px-4">
+          <h3 className="font-bold py-2 text-lg text-gray-600"> {name} </h3>
+          <h4 className="text-md text-slate-500"> {cuisines.join(", ")} </h4>
+          <div className="text-md text-slate-500 my-4 flex justify-between bottom-0">
+            <p className="text-green-600 text-md"> {avgRatingString} ✯ </p>
+            <p className="text-md"> {costForTwo} </p>
+            {/* <p className="text-green-600 text-sm"> {sla.slaString}</p> */}
+          </div>
         </div>
       </div>
     </div>
-  ); 
+  );
 };
 
 export default RestaurantCard;

@@ -21,25 +21,26 @@ const Body = () => {
     setRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
-
 
   return restaurants?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="search-section">
+    <div className="body px-12">
+      <div className="search-section flex container py-5 px-4">
         <div className="search-box">
-          <input 
-            className="search-input"
+          <input
+            className="search-input rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             type="text"
             value={searchText}
             placeholder="Search by restaurant"
             onChange={(e) => setsearchText(e.target.value)}
           />
           <button
-            className="search-btn"
+            className="search-btn mx-2 rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm"
             onClick={() => {
               const filteredRestaurant = restaurants?.filter((restaurant) => {
                 return restaurant.info.name
@@ -54,7 +55,7 @@ const Body = () => {
         </div>
         <div className="filter-box">
           <button
-            className="filter-btn"
+            className="search-btn mx-2 rounded-md bg-gray-200 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-600 shadow-sm"
             onClick={() => {
               const filteredList = restaurants.filter(
                 (item) => item.info.avgRatingString > 4
@@ -66,13 +67,17 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="res-container">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
         {filteredRestaurants?.map((restaurant) => {
-          return(
-            <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id} style={{textDecoration: 'none'}}>
-               <RestaurantCard data={restaurant} />
+          return (
+            <Link
+              to={"/restaurants/" + restaurant.info.id}
+              key={restaurant.info.id}
+              style={{ textDecoration: "none" }}
+            >
+              <RestaurantCard data={restaurant} />
             </Link>
-          )
+          );
         })}
       </div>
     </div>
