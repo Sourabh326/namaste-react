@@ -2,11 +2,16 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { CDN_LINK } from "../utils/constants";
+import BannerAndCuisines from "./BannerAndCuisines";
 
 const Body = () => {
+  const [cuisineType, setCuisineType] = useState([]);
+  const [offerRestarants, setOfferRestarants] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
+  
 
   useEffect(() => {
     fetchData();
@@ -23,14 +28,31 @@ const Body = () => {
     );
     setFilteredRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    );   
+    
+    setCuisineType(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info);
+    setOfferRestarants(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
   };
 
   return restaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body px-12">
-      <div className="search-section flex container py-5 px-4">
+       <div className="cuisine-section my-7">
+          <h1 className="text-2xl text-gray-800 font-semibold">Best offers for you</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mt-5">
+            <BannerAndCuisines data={offerRestarants} />
+          </div>
+      </div>
+
+      <div className="cuisine-section my-7">
+          <h1 className="text-2xl text-gray-800 font-semibold">Whats on your mind?</h1>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 xl:grid-cols-9 mt-5">
+            <BannerAndCuisines data={cuisineType?.slice(0, 9)} />
+          </div>
+      </div>
+
+      <div className="search-section flex container py-5">
         <div className="search-box">
           <input
             className="search-input rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -50,7 +72,7 @@ const Body = () => {
               setFilteredRestaurants(filteredRestaurant);
             }}
           >
-            Search
+            Search <i class="fa fa-search" aria-hidden="true"></i> 
           </button>
         </div>
         <div className="filter-box">
@@ -63,7 +85,7 @@ const Body = () => {
               setFilteredRestaurants(filteredList);
             }}
           >
-            Top Rated Restaurant
+            Top Rated Restaurant <i class="fa fa-filter" aria-hidden="true"></i>
           </button>
         </div>
       </div>

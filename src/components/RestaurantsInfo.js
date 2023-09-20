@@ -14,9 +14,6 @@ const RestaurantsInfo = () => {
   const { name, areaName, cuisines, avgRating, totalRatingsString } =
     restaurantsInfo?.cards[0].card?.card?.info;
 
-  // const { itemCards } =
-  //   restaurantsInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-  //     ?.card;
   const categories =
     restaurantsInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
@@ -36,7 +33,7 @@ const RestaurantsInfo = () => {
           <div className="rating bg-green-200 px-3 py-2 rounded-md shadow-sm text-center ">
             <h3 className="text-green-600 font-semibold text-lg">
               {" "}
-              {avgRating} ✰{" "}
+              {avgRating} <i class="fa fa-star" aria-hidden="true"></i>
             </h3>
             <p className="text-sm  text-gray-700"> {totalRatingsString} </p>
           </div>

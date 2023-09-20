@@ -50,3 +50,22 @@
 
   - useEffect()
 
+# Redux Toolkit
+  -
+
+# Type of testing (developer)
+  - Unit testing
+  - Integration testing
+  - End to End testing (e2e testing)
+
+# Setting up testing library in our app (Jest)
+  - Install React testing library
+  - Install jest
+  - Install babel dependency
+  - Configure babel
+  - configure parcel config file to disable default babale transpilation
+  - jest - npx jest --init
+  - install jestdom
+  - npm i @babel/preset-react
+
+

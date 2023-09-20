@@ -28,9 +28,9 @@ const RestaurantCard = (props) => {
         />
         <div className="res-content py-2 px-4">
           <h3 className="font-bold py-2 text-lg text-gray-600"> {name} </h3>
-          <h4 className="text-md text-slate-500"> {cuisines.join(", ")} </h4>
+          <h4 className="text-md text-slate-500 h-24"> {cuisines.join(", ")} </h4>
           <div className="text-md text-slate-500 my-4 flex justify-between bottom-0">
-            <p className="text-green-600 text-md"> {avgRatingString} ✯ </p>
+            <p className="bg-green-500 text-white px-1 text-sm rounded-sm"> {avgRatingString} <i class="fa fa-star" aria-hidden="true"></i> </p>
             <p className="text-md"> {costForTwo} </p>
             {/* <p className="text-green-600 text-sm"> {sla.slaString}</p> */}
           </div>
