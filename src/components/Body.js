@@ -6,8 +6,8 @@ import { CDN_LINK } from "../utils/constants";
 import BannerAndCuisines from "./BannerAndCuisines";
 
 const Body = () => {
-  const [cuisineType, setCuisineType] = useState([]);
   const [offerRestarants, setOfferRestarants] = useState([]);
+  const [cuisineType, setCuisineType] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setsearchText] = useState("");
@@ -22,7 +22,10 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await result.json();
+
     // optional chaining
+    setOfferRestarants(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
+    setCuisineType(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info);
     setRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -30,8 +33,6 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );   
     
-    setCuisineType(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info);
-    setOfferRestarants(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
   };
 
   return restaurants?.length === 0 ? (
@@ -46,7 +47,7 @@ const Body = () => {
       </div>
 
       <div className="cuisine-section my-7">
-          <h1 className="text-2xl text-gray-800 font-semibold">Whats on your mind?</h1>
+          <h1 className="text-2xl text-gray-800 font-semibold">What's on your mind?</h1>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 xl:grid-cols-9 mt-5">
             <BannerAndCuisines data={cuisineType?.slice(0, 9)} />
           </div>

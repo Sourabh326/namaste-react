@@ -15,7 +15,7 @@ class UserClass extends Component {
   }
 
   render() {
-    if (this.state.userInfo === null) return <div>Loding...</div>;
+    if (this.state.userInfo === null) return <div className="text-3xl text-gray-700 font-semibold  text-center w-3/12 mx-auto mt-40">Loding...</div>;
     const { name, avatar_url, html_url, bio } = this.state.userInfo;
 
     return (
@@ -29,6 +29,8 @@ class UserClass extends Component {
 
         <div className="bio text-md text-gray-600 mt-4">Bio</div>
         <div className="info-details text-sm text-gray-500">{bio}</div>
+
+        <div className="info-details text-sm text-gray-500 mt-8">Social Links</div>
 
         <div className="social my-5 flex justify-evenly">
           <div>

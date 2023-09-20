@@ -27,7 +27,7 @@ const Header = () => {
           <li className="px-4 text-md text-slate-600 hover:text-slate-500"> <i class="fa fa-home" aria-hidden="true"></i> {" "} <Link to="/">Home</Link> </li>
           <li className="px-4 text-md text-slate-600 hover:text-slate-500"> <Link to="/about">About</Link> </li>
           <li className="px-4 text-md text-slate-600 hover:text-slate-500"> <Link to="/contact">Contact Us</Link> </li>
-          <li className="px-4 text-md text-slate-600 hover:text-slate-500"> <Link to="/grocery">Grocery</Link> </li>
+          {/* <li className="px-4 text-md text-slate-600 hover:text-slate-500"> <Link to="/grocery">Grocery</Link> </li> */}
           <li className="px-4 text-md text-slate-600 hover:text-slate-500"> <Link to="/cart"> <i class="fa fa-shopping-cart" aria-hidden="true"> </i> {" "}
            Cart ({cart?.item.length }) </Link> </li>
           <button className="px-4 text-md text-slate-600 hover:text-slate-500"   onClick={()=> {

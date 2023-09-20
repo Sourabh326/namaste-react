@@ -6,13 +6,13 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-import RestaurantsInfo from "./components/RestaurantsInfo";
+// import RestaurantsInfo from "./components/RestaurantsInfo";
 // import Grocery from "./components/Grocery";
 import { UserProvider } from "./utils/UserContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
-const Grocery = lazy(()=> import("./components/Grocery"));
+const RestaurantsInfo = lazy(()=> import("./components/RestaurantsInfo"));
 //  const heading = React.createElement("h1", {id:'heading'}, "This is from React");
 // JSX => bable converts JSX to the React.createElement => ReactElement-JS Object => HTML Element (Render)
 
@@ -47,12 +47,12 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantsInfo />
+        element: <Suspense fallback={<h2>Loading...</h2>}><RestaurantsInfo /></Suspense>
       },
-      {
-        path: "/grocery",
-        element: <Suspense fallback={<h2>Loading...</h2>}><Grocery /></Suspense>
-      },
+      // {
+      //   path: "/grocery",
+      //   element: <Suspense fallback={<h2>Loading...</h2>}><RestaurantsInfo /></Suspense>
+      // },
       {
         path: "/cart",
         element: <Cart />
